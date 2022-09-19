@@ -11,7 +11,6 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class User extends UserDto {
-   // private nameID;
     private Long id;
     private String fullName;
     private List<Book> books;
