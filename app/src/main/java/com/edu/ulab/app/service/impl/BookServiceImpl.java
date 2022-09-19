@@ -5,7 +5,7 @@ import com.edu.ulab.app.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-
+import static com.edu.ulab.app.storage.Storage.getBookFromStorageByBookId;
 
 @Slf4j
 @Service
@@ -15,8 +15,10 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto createBook(BookDto bookDto) {
-
-        return null;
+        if(bookDto.getId() == null){
+            bookDto.setId(bookId++);
+        }
+        return bookDto;
     }
 
     @Override
@@ -27,12 +29,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto getBookById(Long id) {
-        return null;
+        return getBookFromStorageByBookId(id);
     }
 
     @Override
     public void deleteBookById(Long id) {
-
+        deleteBookById(id);
 
 
     }
